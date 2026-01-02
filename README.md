@@ -2,12 +2,6 @@
 
 Site vitrine da marca Tenua, construído com React, Vite, TypeScript e Tailwind CSS (componentes acessíveis via shadcn/ui/Radix UI). Projeto estático, pronto para deploy em host de arquivos.
 
-## Prévias
-![Prévia geral](public/og-image.jpg)
-![Seção Hero](src/assets/hero-lifestyle.jpg)
-![Produto — Tapete](src/assets/product-rug-living.jpg)
-![Galeria](src/assets/gallery-1.jpg)
-
 ## Visão Geral
 - Página única com seções: Hero, Sobre, Essência, Produtos, Galeria, Depoimentos, Cuidados, Processo de Pedido, FAQ e Contato.
 - Botão de WhatsApp integrado para conversão direta.
