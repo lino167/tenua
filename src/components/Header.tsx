@@ -47,7 +47,7 @@ const Header = () => {
             <img
               src={tenuaSymbol}
               alt="Tenua símbolo"
-              className="h-12 md:h-14 w-auto transition-opacity duration-300 hover:opacity-80"
+              className="h-14 md:h-16 w-auto transition-opacity duration-300 hover:opacity-80"
             />
           </a>
           <ul className="hidden md:flex items-center gap-6 lg:gap-8">
