@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { GALLERY_CONTENT } from "@/data/siteContent";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
@@ -29,12 +29,33 @@ const galleryImages: GalleryImage[] = [
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("Todas");
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [transitionDir, setTransitionDir] = useState<"next" | "prev" | null>(null);
+  const touchStartX = useRef<number | null>(null);
 
   const filteredImages =
     selectedCategory === "Todas"
       ? galleryImages
       : galleryImages.filter((img) => img.category === selectedCategory);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxIndex(null);
+      if (e.key === "ArrowRight")
+        setLightboxIndex((idx) =>
+          idx === null ? 0 : (idx + 1) % filteredImages.length
+        );
+      if (e.key === "ArrowLeft")
+        setLightboxIndex((idx) =>
+          idx === null
+            ? 0
+            : (idx - 1 + filteredImages.length) % filteredImages.length
+        );
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [lightboxIndex, filteredImages.length]);
 
   return (
     <section id="portfolio" className="section-alt">
@@ -72,7 +93,7 @@ const Gallery = () => {
           {filteredImages.map((image, index) => (
             <button
               key={index}
-              onClick={() => setLightboxImage(image.src)}
+              onClick={() => setLightboxIndex(index)}
               className="relative aspect-square overflow-hidden group cursor-pointer"
             >
               <img
@@ -91,24 +112,92 @@ const Gallery = () => {
         </div>
 
         {/* Lightbox */}
-        {lightboxImage && (
+        {lightboxIndex !== null && filteredImages[lightboxIndex] && (
           <div
             className="fixed inset-0 z-50 bg-foreground/95 flex items-center justify-center p-4 cursor-pointer"
-            onClick={() => setLightboxImage(null)}
+            onClick={() => setLightboxIndex(null)}
+            onTouchStart={(e) => {
+              touchStartX.current = e.touches[0].clientX;
+            }}
+            onTouchEnd={(e) => {
+              const startX = touchStartX.current;
+              const endX = e.changedTouches[0].clientX;
+              touchStartX.current = null;
+              if (startX === null) return;
+              const dx = endX - startX;
+              if (Math.abs(dx) > 50) {
+                if (dx < 0) {
+                  setTransitionDir("next");
+                  setLightboxIndex((idx) =>
+                    idx === null ? 0 : (idx + 1) % filteredImages.length
+                  );
+                } else {
+                  setTransitionDir("prev");
+                  setLightboxIndex((idx) =>
+                    idx === null
+                      ? 0
+                      : (idx - 1 + filteredImages.length) % filteredImages.length
+                  );
+                }
+              }
+            }}
           >
             <button
               className="absolute top-6 right-6 text-primary-foreground hover:text-secondary transition-colors"
-              onClick={() => setLightboxImage(null)}
+              onClick={() => setLightboxIndex(null)}
               aria-label="Fechar"
             >
               <X size={32} />
             </button>
-            <img
-              src={lightboxImage}
-              alt="Imagem ampliada"
-              className="max-w-full max-h-[90vh] object-contain"
+            <button
+              className="absolute left-4 md:left-8 p-2 rounded-full bg-primary/80 text-primary-foreground hover:bg-primary transition-colors"
+              onClick={(e) => {
+                e.stopPropagation();
+                setTransitionDir("prev");
+                setLightboxIndex((idx) =>
+                  idx === null
+                    ? 0
+                    : (idx - 1 + filteredImages.length) % filteredImages.length
+                );
+              }}
+              aria-label="Anterior"
+            >
+              <ChevronLeft size={28} />
+            </button>
+            <div
+              className="max-w-full max-h-[90vh] animate-fade-in"
               onClick={(e) => e.stopPropagation()}
-            />
+              key={filteredImages[lightboxIndex].src}
+            >
+              <div
+                className={
+                  transitionDir === "next"
+                    ? "animate-slide-in-right"
+                    : transitionDir === "prev"
+                    ? "animate-slide-in-left"
+                    : ""
+                }
+              >
+                <img
+                  src={filteredImages[lightboxIndex].src}
+                  alt={filteredImages[lightboxIndex].alt}
+                  className="max-w-full max-h-[90vh] object-contain animate-kenburns"
+                />
+              </div>
+            </div>
+            <button
+              className="absolute right-4 md:right-8 p-2 rounded-full bg-primary/80 text-primary-foreground hover:bg-primary transition-colors"
+              onClick={(e) => {
+                e.stopPropagation();
+                setTransitionDir("next");
+                setLightboxIndex((idx) =>
+                  idx === null ? 0 : (idx + 1) % filteredImages.length
+                );
+              }}
+              aria-label="Próxima"
+            >
+              <ChevronRight size={28} />
+            </button>
           </div>
         )}
       </div>

@@ -92,6 +92,7 @@ export const PRODUCTS_CONTENT = {
         'Bolsa artesanal em fio de algodão, perfeita para o dia a dia com elegância natural.',
       category: 'Acessórios',
       price: 'A partir de R$ 180',
+      available: true,
     },
     {
       id: 'almofada-mandala',
@@ -100,6 +101,7 @@ export const PRODUCTS_CONTENT = {
         'Almofada decorativa com padrão mandala, trazendo aconchego e sofisticação para seu lar.',
       category: 'Decoração',
       price: 'A partir de R$ 120',
+      available: true,
     },
     {
       id: 'tapete-sol',
@@ -108,6 +110,7 @@ export const PRODUCTS_CONTENT = {
         'Tapete circular com bordas detalhadas, uma obra de arte para receber os dias com calor.',
       category: 'Decoração',
       price: 'A partir de R$ 350',
+      available: true,
     },
     {
       id: 'kit-presente',
@@ -116,6 +119,7 @@ export const PRODUCTS_CONTENT = {
         'Conjunto especial para presentear com carinho: manta bebê, embalagem artesanal e cartão.',
       category: 'Presentes',
       price: 'A partir de R$ 250',
+      available: true,
     },
   ],
   ctaText: 'Quero Encomendar',
