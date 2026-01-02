@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react'
 import tenuaSymbol from '@/assets/tenua-simbolo.png'
 
+const navLinks = [
+  { href: '#historia', label: 'História' },
+  { href: '#colecoes', label: 'Coleções' },
+  { href: '#portfolio', label: 'Portfólio' },
+  { href: '#encomendar', label: 'Encomendar' },
+  { href: '#contato', label: 'Contato' },
+]
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -12,7 +19,12 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleNavClick = (_href: string) => {}
+  const handleNavClick = (href: string) => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   return (
     <header
@@ -35,9 +47,25 @@ const Header = () => {
             <img
               src={tenuaSymbol}
               alt="Tenua símbolo"
-              className="h-14 md:h-16 w-auto transition-opacity duration-300 hover:opacity-80"
+              className="h-12 md:h-14 w-auto transition-opacity duration-300 hover:opacity-80"
             />
           </a>
+          <ul className="hidden md:flex items-center gap-6 lg:gap-8">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleNavClick(link.href)
+                  }}
+                  className="nav-link px-3 py-2 rounded-full text-foreground/80 hover:text-foreground hover:bg-primary/10"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
       </div>
     </header>
