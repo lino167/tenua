@@ -38,7 +38,8 @@ const Contact = () => {
                          bg-primary-foreground text-primary
                          text-sm font-medium tracking-wide uppercase
                          transition-all duration-500 ease-out
-                         hover:bg-primary-foreground/90 hover:shadow-xl"
+                         hover:bg-primary-foreground/90 hover:shadow-xl
+                         focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2"
             >
               <MessageCircle size={20} />
               Falar no WhatsApp
