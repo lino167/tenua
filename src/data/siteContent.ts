@@ -281,4 +281,10 @@ export const FOOTER_CONTENT = {
   tagline: 'Acalma, envolve, Tenua.',
   copyright: `© ${new Date().getFullYear()} Tenua. Ateliê de Crochê Autoral. Todos os direitos reservados.`,
   madeWith: 'Feito à mão, com alma.',
+  artisan: {
+    role: 'Fundadora e artesã',
+    name: 'Jordane Passos',
+    city: 'Guadalupe - PI',
+    cep: '64840-000',
+  },
 }

@@ -69,6 +69,10 @@ const Contact = () => {
 
         {/* Footer Info */}
         <div className="space-y-1">
+          <p className="text-xs md:text-[13px] text-primary-foreground/70">
+            {FOOTER_CONTENT.artisan.role}: {FOOTER_CONTENT.artisan.name} ·{' '}
+            {FOOTER_CONTENT.artisan.city} · CEP: {FOOTER_CONTENT.artisan.cep}
+          </p>
           <p className="text-xs md:text-[13px] text-primary-foreground/60">
             {FOOTER_CONTENT.copyright}
           </p>
