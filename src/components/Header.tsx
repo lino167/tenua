@@ -33,12 +33,12 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-sm border-b border-border/50 py-4'
+          ? 'bg-background/95 backdrop-blur-md shadow-sm py-4'
           : 'bg-transparent py-6'
       }`}
     >
       <div className="container-wide mx-auto px-6 md:px-12 lg:px-20">
-        <nav className="flex items-center justify-between md:border md:border-border/50 md:bg-background/60 md:backdrop-blur-md md:rounded-full md:px-4 md:py-2">
+        <nav className="flex items-center justify-between">
           <a
             href="#"
             onClick={(e) => {
@@ -62,7 +62,7 @@ const Header = () => {
                     e.preventDefault()
                     handleNavClick(link.href)
                   }}
-                  className="nav-link px-4 py-2 rounded-full text-foreground/80 hover:text-foreground hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  className="nav-link px-3 py-2 rounded-full text-foreground/80 hover:text-foreground hover:bg-primary/10"
                 >
                   {link.label}
                 </a>
@@ -71,7 +71,7 @@ const Header = () => {
           </ul>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="relative z-50 md:hidden p-2 text-foreground rounded-full border border-border/50 bg-background/70 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-primary/30"
+            className="relative z-50 md:hidden p-2 text-foreground"
             aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -84,17 +84,8 @@ const Header = () => {
             ? 'opacity-100 pointer-events-auto'
             : 'opacity-0 pointer-events-none'
         }`}
-        onClick={() => setIsMobileMenuOpen(false)}
       >
-        <div
-          className="flex flex-col items-center justify-center h-full bg-background/90 backdrop-blur-lg"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <img
-            src={tenuaSymbol}
-            alt="Tenua símbolo"
-            className="h-12 w-auto mb-10 opacity-90"
-          />
+        <div className="flex flex-col items-center justify-center h-full">
           <ul className="flex flex-col items-center gap-8">
             {navLinks.map((link, index) => (
               <li
@@ -112,7 +103,7 @@ const Header = () => {
                     e.preventDefault()
                     handleNavClick(link.href)
                   }}
-                  className="text-2xl font-display text-foreground hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30 rounded-full px-6 py-2"
+                  className="text-2xl font-display text-foreground hover:text-primary transition-colors"
                 >
                   {link.label}
                 </a>
