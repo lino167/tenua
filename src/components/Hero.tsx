@@ -9,100 +9,78 @@ const Hero = () => {
   const instagramUrl = `https://instagram.com/${SITE_CONFIG.instagram}`
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Imagem de fundo ocupando todo o Hero com degradê à esquerda */}
-      <div className="absolute inset-0 -z-10">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Imagem de fundo fullscreen */}
+      <div className="absolute inset-0">
         <img
           src={heroImage}
           alt="Manta de crochê artesanal em poltrona"
           className="w-full h-full object-cover will-change-transform animate-kenburns"
-          style={{
-            WebkitMaskImage:
-              'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.08) 12%, rgba(0,0,0,0.25) 22%, rgba(0,0,0,0.55) 40%, black 62%, black 100%)',
-            maskImage:
-              'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.08) 12%, rgba(0,0,0,0.25) 22%, rgba(0,0,0,0.55) 40%, black 62%, black 100%)',
-          }}
         />
+        {/* Overlay escuro para legibilidade */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/30" />
       </div>
 
-      {/* Removida a imagem de logo/símbolo para foco total no tapete */}
-
+      {/* Conteúdo centralizado à esquerda */}
       <div className="relative z-10 w-full">
-        <div className="container-wide mx-auto px-6 md:px-12 lg:px-20 pt-32 pb-20">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
-            {/* Content */}
-            <div className="text-center lg:text-left order-2 lg:order-1">
-              <p
-                className="text-small text-muted-foreground tracking-widest mb-6 animate-fade-in-up opacity-0"
-                style={{ animationDelay: '100ms' }}
-              >
-                {HERO_CONTENT.subtitle}
-              </p>
-
-              <h1
-                className="heading-hero lg:text-9xl bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-primary mb-6 animate-fade-in-up opacity-0"
-                style={{ animationDelay: '200ms' }}
-              >
-                {HERO_CONTENT.title}
-              </h1>
-
-              <p
-                className="text-2xl md:text-3xl font-display italic text-primary mb-8 animate-fade-in-up opacity-0"
-                style={{ animationDelay: '300ms' }}
-              >
-                {HERO_CONTENT.tagline}
-              </p>
-
-              <div
-                className="organic-line mx-auto lg:mx-0 mb-8 animate-fade-in opacity-0"
-                style={{ animationDelay: '400ms' }}
-              />
-
-              <p
-                className="text-lead max-w-xl mx-auto lg:mx-0 mb-10 animate-fade-in-up opacity-0"
-                style={{ animationDelay: '500ms' }}
-              >
-                {HERO_CONTENT.description}
-              </p>
-
-              {/* CTAs */}
-              <div
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up opacity-0"
-                style={{ animationDelay: '600ms' }}
-              >
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary hover:scale-[1.03]"
-                >
-                  <MessageCircle size={18} />
-                  {HERO_CONTENT.ctaPrimary}
-                </a>
-                <a
-                  href={instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary hover:scale-[1.03]"
-                >
-                  {HERO_CONTENT.ctaSecondary}
-                </a>
-              </div>
-            </div>
-
-            {/* Hero Image em primeiro plano (coluna direita) */}
-            <div
-              className="order-1 lg:order-2 animate-fade-in opacity-0"
-              style={{ animationDelay: '400ms', height: 'calc(100vh - 13rem)' }}
+        <div className="container-wide mx-auto px-6 md:px-12 lg:px-20">
+          <div className="max-w-2xl">
+            <p
+              className="text-small text-muted-foreground tracking-widest mb-6 animate-fade-in-up opacity-0"
+              style={{ animationDelay: '100ms' }}
             >
-              <div className="relative h-full">
-                <div className="absolute -inset-4 bg-secondary/40 -z-10 blur-sm" />
-                <img
-                  src={heroImage}
-                  alt="Manta de crochê artesanal em poltrona"
-                  className="w-full h-full object-cover shadow-lg will-change-transform"
-                />
-              </div>
+              {HERO_CONTENT.subtitle}
+            </p>
+
+            <h1
+              className="heading-hero lg:text-8xl xl:text-9xl bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-primary mb-6 animate-fade-in-up opacity-0"
+              style={{ animationDelay: '200ms' }}
+            >
+              {HERO_CONTENT.title}
+            </h1>
+
+            <p
+              className="text-2xl md:text-3xl font-display italic text-primary mb-8 animate-fade-in-up opacity-0"
+              style={{ animationDelay: '300ms' }}
+            >
+              {HERO_CONTENT.tagline}
+            </p>
+
+            <div
+              className="organic-line mb-8 animate-fade-in opacity-0"
+              style={{ animationDelay: '400ms' }}
+            />
+
+            <p
+              className="text-lead max-w-xl mb-10 animate-fade-in-up opacity-0"
+              style={{ animationDelay: '500ms' }}
+            >
+              {HERO_CONTENT.description}
+            </p>
+
+            {/* CTAs */}
+            <div
+              className="flex flex-col sm:flex-row gap-4 animate-fade-in-up opacity-0"
+              style={{ animationDelay: '600ms' }}
+            >
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary hover:scale-[1.03]"
+              >
+                <MessageCircle size={18} />
+                {HERO_CONTENT.ctaPrimary}
+              </a>
+              <a
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary hover:scale-[1.03]"
+              >
+                {HERO_CONTENT.ctaSecondary}
+              </a>
             </div>
           </div>
         </div>
