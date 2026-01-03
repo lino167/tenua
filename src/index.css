@@ -47,7 +47,7 @@
     --input: 30 15% 85%;
     --ring: 25 15% 48%;
 
-    --radius: 0.25rem;
+    --radius: 0.75rem;
 
     /* Custom Brand Variables */
     --terracota: 25 15% 48%;
@@ -195,7 +195,7 @@
 
   /* Card styling */
   .card-minimal {
-    @apply bg-background border border-border/50 p-6 md:p-8 transition-all duration-500;
+    @apply bg-background border border-border/50 p-6 md:p-8 transition-all duration-500 rounded-xl;
   }
 
   .card-minimal:hover {
@@ -207,7 +207,7 @@
     @apply inline-flex items-center justify-center gap-2 px-8 py-4 
            bg-primary text-primary-foreground 
            text-sm font-medium tracking-wide uppercase
-           transition-all duration-500 ease-out
+           transition-all duration-500 ease-out rounded-full
            hover:bg-primary/90 hover:shadow-lg
            focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2;
   }
@@ -216,7 +216,7 @@
     @apply inline-flex items-center justify-center gap-2 px-8 py-4 
            bg-transparent border border-primary text-primary
            text-sm font-medium tracking-wide uppercase
-           transition-all duration-500 ease-out
+           transition-all duration-500 ease-out rounded-full
            hover:bg-primary hover:text-primary-foreground
            focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2;
   }
