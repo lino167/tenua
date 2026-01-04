@@ -14,7 +14,7 @@ const Contact = React.forwardRef<HTMLElement>((props, ref) => {
     <section
       id="contato"
       ref={ref}
-      className="section bg-primary text-primary-foreground md:py-20 lg:py-24"
+      className="section bg-primary text-primary-foreground md:py-20 lg:py-24 pb-28 md:pb-24"
       {...props}
     >
       <div className="container-narrow mx-auto text-center">
@@ -36,14 +36,14 @@ const Contact = React.forwardRef<HTMLElement>((props, ref) => {
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-primary-foreground/70 hover:text-primary-foreground transition-colors break-words"
           >
             <Instagram size={20} />@{SITE_CONFIG.instagram}
           </a>
           <span className="w-px h-4 bg-primary-foreground/30" />
           <a
             href={emailUrl}
-            className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-primary-foreground/70 hover:text-primary-foreground transition-colors break-words"
           >
             <Mail size={20} />
             {SITE_CONFIG.email}
