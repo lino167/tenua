@@ -1,16 +1,17 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
-import About from '@/components/About'
-import Essence from '@/components/Essence'
-import Products from '@/components/Products'
-import Gallery from '@/components/Gallery'
-import OrderProcess from '@/components/OrderProcess'
-import Care from '@/components/Care'
-import FAQ from '@/components/FAQ'
-import Contact from '@/components/Contact'
+import { lazy, Suspense, useEffect } from 'react'
+import LazySection from '@/components/LazySection'
+const About = lazy(() => import('@/components/About'))
+const Essence = lazy(() => import('@/components/Essence'))
+const Products = lazy(() => import('@/components/Products'))
+const Gallery = lazy(() => import('@/components/Gallery'))
+const OrderProcess = lazy(() => import('@/components/OrderProcess'))
+const Care = lazy(() => import('@/components/Care'))
+const FAQ = lazy(() => import('@/components/FAQ'))
+const Contact = lazy(() => import('@/components/Contact'))
 import WhatsAppButton from '@/components/WhatsAppButton'
 import { SITE_CONFIG } from '@/data/siteContent'
-import { useEffect } from 'react'
 
 const Index = () => {
   // Update document metadata
@@ -22,16 +23,48 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main>
+      <main className="pt-24 md:pt-28">
         <Hero />
-        <About />
-        <Essence />
-        <Products />
-        <Gallery />
-        <OrderProcess />
-        <Care />
-        <FAQ />
-        <Contact />
+        <Suspense fallback={null}>
+          <LazySection>
+            <About />
+          </LazySection>
+        </Suspense>
+        <Suspense fallback={null}>
+          <LazySection>
+            <Essence />
+          </LazySection>
+        </Suspense>
+        <Suspense fallback={null}>
+          <LazySection>
+            <Products />
+          </LazySection>
+        </Suspense>
+        <Suspense fallback={null}>
+          <LazySection>
+            <Gallery />
+          </LazySection>
+        </Suspense>
+        <Suspense fallback={null}>
+          <LazySection>
+            <OrderProcess />
+          </LazySection>
+        </Suspense>
+        <Suspense fallback={null}>
+          <LazySection>
+            <Care />
+          </LazySection>
+        </Suspense>
+        <Suspense fallback={null}>
+          <LazySection>
+            <FAQ />
+          </LazySection>
+        </Suspense>
+        <Suspense fallback={null}>
+          <LazySection>
+            <Contact />
+          </LazySection>
+        </Suspense>
       </main>
 
       <WhatsAppButton />

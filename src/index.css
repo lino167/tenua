@@ -138,10 +138,12 @@
   /* Section styling - Editorial rhythm */
   .section {
     @apply py-20 md:py-32 px-6 md:px-12 lg:px-20;
+    scroll-margin-top: 6rem;
   }
 
   .section-alt {
     @apply py-20 md:py-32 px-6 md:px-12 lg:px-20 bg-secondary/30;
+    scroll-margin-top: 6rem;
   }
 
   /* Container */
@@ -319,5 +321,30 @@
   .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Reduzir movimento no mobile quando o usuário prefere menos animação */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  /* Desativa animações intensas */
+  .animate-kenburns,
+  .animate-fade-in,
+  .animate-fade-in-up,
+  .animate-slide-in-left,
+  .animate-slide-in-right,
+  .animate-bounce,
+  .float,
+  .breathe,
+  .fade-in,
+  .fade-in-up,
+  .slide-in-left {
+    animation: none !important;
+  }
+  /* Evita transições longas */
+  * {
+    transition-duration: 0.01ms !important;
   }
 }

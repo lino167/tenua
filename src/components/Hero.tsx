@@ -1,15 +1,21 @@
 import { MessageCircle } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 import { HERO_CONTENT, SITE_CONFIG } from '@/data/siteContent'
 import heroImage from '@/assets/hero-lifestyle.jpg'
 
 const Hero = () => {
+  const imgRef = useRef<HTMLImageElement | null>(null)
   const whatsappUrl = `https://wa.me/${
     SITE_CONFIG.whatsapp
   }?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`
   const instagramUrl = `https://instagram.com/${SITE_CONFIG.instagram}`
 
+  useEffect(() => {
+    imgRef.current?.setAttribute('fetchpriority', 'high')
+  }, [])
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-7rem)] flex items-center justify-center overflow-hidden">
       {/* Imagem de fundo fullscreen */}
       <div className="absolute inset-0">
         <img
@@ -18,10 +24,9 @@ const Hero = () => {
           loading="eager"
           decoding="async"
           className="w-full h-full object-cover will-change-transform animate-kenburns"
+          ref={imgRef}
         />
-        {/* Overlay para legibilidade - mais forte no mobile */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50 md:from-background md:via-background/85 md:to-transparent backdrop-blur-[2px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent md:from-background md:via-background/85 md:to-transparent backdrop-blur-[2px]" />
       </div>
 
       {/* Conteúdo centralizado à esquerda */}
