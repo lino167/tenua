@@ -15,7 +15,7 @@ const Hero = () => {
         <img
           src={heroImage}
           alt="Manta de crochê artesanal em poltrona"
-          fetchPriority="high"
+          loading="eager"
           decoding="async"
           className="w-full h-full object-cover will-change-transform animate-kenburns"
         />
