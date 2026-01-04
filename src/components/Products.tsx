@@ -49,6 +49,8 @@ const Products = () => {
                   <img
                     src={productImages[product.id]}
                     alt={product.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full aspect-[4/5] object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-foreground/0 transition-colors duration-500 group-hover:bg-foreground/5" />

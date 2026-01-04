@@ -1,5 +1,5 @@
-import { ABOUT_CONTENT } from "@/data/siteContent";
-import aboutImage from "@/assets/about-hands.jpg";
+import { ABOUT_CONTENT } from '@/data/siteContent'
+import aboutImage from '@/assets/about-hands.jpg'
 
 const About = () => {
   return (
@@ -12,6 +12,8 @@ const About = () => {
             <img
               src={aboutImage}
               alt="Mãos criando crochê artesanal"
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto object-cover"
             />
             <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-secondary/30 -z-10" />
@@ -47,7 +49,7 @@ const About = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default About;
+export default About
