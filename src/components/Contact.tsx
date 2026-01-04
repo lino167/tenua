@@ -27,42 +27,24 @@ const Contact = () => {
           "{FOOTER_CONTENT.tagline}"
         </p>
 
-        {/* CTA + Social Links */}
-        <div className="mb-12 md:mb-10 md:grid md:grid-cols-2 md:items-center md:gap-8">
-          <div className="mb-8 md:mb-0">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4
-                         bg-primary-foreground text-primary
-                         text-sm font-medium tracking-wide uppercase
-                         transition-all duration-500 ease-out
-                         hover:bg-primary-foreground/90 hover:shadow-xl
-                         focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2"
-            >
-              <MessageCircle size={20} />
-              Falar no WhatsApp
-            </a>
-          </div>
-          <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 md:gap-5 text-center">
-            <a
-              href={instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-            >
-              <Instagram size={20} />@{SITE_CONFIG.instagram}
-            </a>
-            <span className="w-px h-4 bg-primary-foreground/30" />
-            <a
-              href={emailUrl}
-              className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-            >
-              <Mail size={20} />
-              {SITE_CONFIG.email}
-            </a>
-          </div>
+        {/* Social Links */}
+        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-5 mb-12 md:mb-10">
+          <a
+            href={instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+          >
+            <Instagram size={20} />@{SITE_CONFIG.instagram}
+          </a>
+          <span className="w-px h-4 bg-primary-foreground/30" />
+          <a
+            href={emailUrl}
+            className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+          >
+            <Mail size={20} />
+            {SITE_CONFIG.email}
+          </a>
         </div>
 
         {/* Divider */}
