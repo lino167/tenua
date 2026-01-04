@@ -26,7 +26,7 @@ const Hero = () => {
           className="w-full h-full object-cover will-change-transform animate-kenburns"
           ref={imgRef}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-transparent md:from-background md:via-background/90 md:to-transparent backdrop-blur-[3px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/96 to-background/30 md:from-background md:via-background/92 md:to-background/20 backdrop-blur-[3px]" />
       </div>
 
       {/* Conteúdo centralizado à esquerda */}
@@ -48,7 +48,7 @@ const Hero = () => {
             </h1>
 
             <p
-              className="text-2xl md:text-3xl font-display italic text-primary mb-8 animate-fade-in-up opacity-0"
+              className="text-2xl md:text-3xl font-display italic text-foreground md:text-primary mb-8 animate-fade-in-up opacity-0"
               style={{ animationDelay: '300ms' }}
             >
               {HERO_CONTENT.tagline}
