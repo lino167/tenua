@@ -6,6 +6,7 @@ import Products from '@/components/Products'
 import Gallery from '@/components/Gallery'
 import OrderProcess from '@/components/OrderProcess'
 import Care from '@/components/Care'
+import Testimonials from '@/components/Testimonials'
 import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import WhatsAppButton from '@/components/WhatsAppButton'
@@ -30,6 +31,7 @@ const Index = () => {
         <Gallery />
         <OrderProcess />
         <Care />
+        <Testimonials />
         <FAQ />
         <Contact />
       </main>

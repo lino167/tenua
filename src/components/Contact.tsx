@@ -1,8 +1,9 @@
-import { MessageCircle, Instagram, Mail } from 'lucide-react'
+import React from 'react'
+import { Instagram, Mail } from 'lucide-react'
 import { SITE_CONFIG, FOOTER_CONTENT } from '@/data/siteContent'
 import tenuaLogo from '@/assets/tenua-logo-principal.png'
 
-const Contact = () => {
+const Contact = React.forwardRef<HTMLElement>((props, ref) => {
   const whatsappUrl = `https://wa.me/${
     SITE_CONFIG.whatsapp
   }?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`
@@ -12,7 +13,9 @@ const Contact = () => {
   return (
     <section
       id="contato"
+      ref={ref}
       className="section bg-primary text-primary-foreground md:py-20 lg:py-24"
+      {...props}
     >
       <div className="container-narrow mx-auto text-center">
         {/* Logo */}
@@ -66,6 +69,8 @@ const Contact = () => {
       </div>
     </section>
   )
-}
+})
+
+Contact.displayName = 'Contact'
 
 export default Contact
