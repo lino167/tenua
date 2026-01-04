@@ -19,7 +19,7 @@ const Contact = () => {
         <img
           src={tenuaLogo}
           alt="Tenua Ateliê de Crochê"
-          className="w-20 md:w-24 lg:w-24 h-auto mx-auto mb-6"
+          className="w-20 md:w-24 lg:w-24 h-auto mx-auto mb-6 brightness-0 invert"
         />
 
         {/* Quote */}
