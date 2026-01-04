@@ -26,7 +26,7 @@ const Hero = () => {
           className="w-full h-full object-cover will-change-transform animate-kenburns"
           ref={imgRef}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-transparent md:from-background md:via-background/85 md:to-transparent backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-transparent md:from-background md:via-background/90 md:to-transparent backdrop-blur-[3px]" />
       </div>
 
       {/* Conteúdo centralizado à esquerda */}
