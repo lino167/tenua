@@ -23,7 +23,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="pt-24 md:pt-28">
+      <main id="conteudo-principal" className="pt-24 md:pt-28">
         <Hero />
         <Suspense fallback={null}>
           <LazySection>

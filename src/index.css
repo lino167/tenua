@@ -105,6 +105,7 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 17px;
   }
 
   body {
@@ -112,7 +113,7 @@
     font-family: var(--font-body);
     font-weight: 400;
     letter-spacing: 0.01em;
-    line-height: 1.7;
+    line-height: 1.8;
   }
 
   h1,
@@ -124,7 +125,7 @@
     font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: -0.01em;
-    line-height: 1.2;
+    line-height: 1.25;
   }
 
   /* Selection color */
@@ -245,7 +246,27 @@
            relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px
            after:bg-primary after:transition-all after:duration-300
            hover:after:w-full
-           focus-visible:text-foreground focus-visible:after:w-full focus:outline-none;
+           focus-visible:text-foreground focus-visible:after:w-full focus:outline-none
+           focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 rounded-full;
+  }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 8px;
+    padding: 0.5rem 1rem;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+    border-radius: 9999px;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+  }
+  .skip-link:focus {
+    left: 8px;
+    z-index: 1000;
+    outline: none;
+    box-shadow: 0 0 0 3px hsl(var(--ring));
   }
 }
 
