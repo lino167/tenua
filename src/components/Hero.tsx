@@ -17,9 +17,9 @@ const Hero = () => {
           alt="Manta de crochê artesanal em poltrona"
           className="w-full h-full object-cover will-change-transform animate-kenburns"
         />
-        {/* Overlay escuro para legibilidade */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-background/30" />
+        {/* Overlay para legibilidade - mais forte no mobile */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50 md:from-background md:via-background/85 md:to-transparent backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/40" />
       </div>
 
       {/* Conteúdo centralizado à esquerda */}
@@ -27,14 +27,14 @@ const Hero = () => {
         <div className="container-wide mx-auto px-6 md:px-12 lg:px-20">
           <div className="max-w-2xl">
             <p
-              className="text-small text-muted-foreground tracking-widest mb-6 animate-fade-in-up opacity-0"
+              className="text-small text-foreground/70 tracking-widest mb-6 animate-fade-in-up opacity-0"
               style={{ animationDelay: '100ms' }}
             >
               {HERO_CONTENT.subtitle}
             </p>
 
             <h1
-              className="heading-hero lg:text-8xl xl:text-9xl bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-primary mb-6 animate-fade-in-up opacity-0"
+              className="heading-hero lg:text-8xl xl:text-9xl text-foreground mb-6 animate-fade-in-up opacity-0"
               style={{ animationDelay: '200ms' }}
             >
               {HERO_CONTENT.title}
@@ -53,7 +53,7 @@ const Hero = () => {
             />
 
             <p
-              className="text-lead max-w-xl mb-10 animate-fade-in-up opacity-0"
+              className="text-lead text-foreground/80 max-w-xl mb-10 animate-fade-in-up opacity-0"
               style={{ animationDelay: '500ms' }}
             >
               {HERO_CONTENT.description}
