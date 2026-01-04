@@ -168,38 +168,6 @@ export const ORDER_CONTENT = {
   note: 'Cada peça leva tempo. É assim que garantimos qualidade e amor em cada ponto.',
 }
 
-export const TESTIMONIALS_CONTENT = {
-  sectionTitle: 'Depoimentos',
-  sectionSubtitle: 'O Que Dizem Sobre Nós',
-  testimonials: [
-    {
-      name: 'Mariana Costa',
-      location: 'São Paulo, SP',
-      text: 'Recebi a manta para minha bebê e fiquei emocionada. A delicadeza dos pontos e a maciez do fio são incomparáveis. É muito mais que um produto — é afeto materializado.',
-    },
-    {
-      name: 'Fernanda Oliveira',
-      location: 'Belo Horizonte, MG',
-      text: 'Encomendei o tapete para presentear minha mãe e ela chorou ao receber. A qualidade e a atenção aos detalhes são impressionantes. Recomendo de olhos fechados.',
-    },
-    {
-      name: 'Juliana Santos',
-      location: 'Curitiba, PR',
-      text: 'A bolsa é perfeita! Uso todos os dias e sempre recebo elogios. O atendimento foi carinhoso do início ao fim. Voltarei com certeza!',
-    },
-    {
-      name: 'Camila Rodrigues',
-      location: 'Rio de Janeiro, RJ',
-      text: 'Comprei as almofadas para renovar minha sala e o resultado superou todas as expectativas. São peças de arte que aquecem qualquer ambiente.',
-    },
-    {
-      name: 'Ana Paula Lima',
-      location: 'Florianópolis, SC',
-      text: 'Presente de aniversário mais especial que já dei. Minha amiga amou os porta-copos. A embalagem já era uma obra de arte por si só!',
-    },
-  ],
-}
-
 export const CARE_CONTENT = {
   sectionTitle: 'Cuidados com a Peça',
   sectionSubtitle: 'Para Durar Uma Vida',
