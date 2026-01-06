@@ -74,21 +74,22 @@ const Gallery = () => {
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <nav aria-label="Filtrar galeria por categoria" className="flex flex-wrap justify-center gap-2 mb-12">
           {GALLERY_CONTENT.categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 text-sm font-medium tracking-wide transition-all duration-300 ${
+              aria-pressed={selectedCategory === category}
+              className={`px-4 py-2 text-sm font-medium tracking-wide transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
                 selectedCategory === category
                   ? 'bg-primary text-primary-foreground'
-                  : 'bg-transparent text-muted-foreground hover:text-foreground'
+                  : 'bg-transparent text-foreground/70 hover:text-foreground hover:bg-secondary/50'
               }`}
             >
               {category}
             </button>
           ))}
-        </div>
+        </nav>
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

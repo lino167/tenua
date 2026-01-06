@@ -26,7 +26,7 @@ const Contact = React.forwardRef<HTMLElement>((props, ref) => {
         />
 
         {/* Quote */}
-        <p className="quote text-primary-foreground/90 md:text-2xl lg:text-3xl mb-8">
+        <p className="quote text-primary-foreground md:text-2xl lg:text-3xl mb-8">
           "{FOOTER_CONTENT.tagline}"
         </p>
 
@@ -36,33 +36,34 @@ const Contact = React.forwardRef<HTMLElement>((props, ref) => {
             href={instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-primary-foreground/70 hover:text-primary-foreground transition-colors break-words"
+            className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-primary-foreground/90 hover:text-primary-foreground transition-colors break-words focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/50 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded-full"
           >
-            <Instagram size={20} />@{SITE_CONFIG.instagram}
+            <Instagram size={20} aria-hidden="true" />
+            <span>@{SITE_CONFIG.instagram}</span>
           </a>
-          <span className="w-px h-4 bg-primary-foreground/30" />
+          <span className="w-px h-4 bg-primary-foreground/40" aria-hidden="true" />
           <a
             href={emailUrl}
-            className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-primary-foreground/70 hover:text-primary-foreground transition-colors break-words"
+            className="inline-flex items-center gap-2 text-sm font-medium tracking-wide text-primary-foreground/90 hover:text-primary-foreground transition-colors break-words focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/50 focus-visible:ring-offset-2 focus-visible:ring-offset-primary rounded-full"
           >
-            <Mail size={20} />
-            {SITE_CONFIG.email}
+            <Mail size={20} aria-hidden="true" />
+            <span>{SITE_CONFIG.email}</span>
           </a>
         </div>
 
         {/* Divider */}
         <div className="w-16 h-px bg-primary-foreground/30 mx-auto mb-6" />
 
-        {/* Footer Info */}
+        {/* Footer Info - WCAG AAA contrast: min 4.5:1 */}
         <div className="space-y-1">
-          <p className="text-xs md:text-[13px] text-primary-foreground/70">
+          <p className="text-xs md:text-[13px] text-primary-foreground/90">
             {FOOTER_CONTENT.artisan.role}: {FOOTER_CONTENT.artisan.name} ·{' '}
             {FOOTER_CONTENT.artisan.city} · CEP: {FOOTER_CONTENT.artisan.cep}
           </p>
-          <p className="text-xs md:text-[13px] text-primary-foreground/60">
+          <p className="text-xs md:text-[13px] text-primary-foreground/80">
             {FOOTER_CONTENT.copyright}
           </p>
-          <p className="text-[11px] md:text-xs text-primary-foreground/40 italic">
+          <p className="text-[11px] md:text-xs text-primary-foreground/70 italic">
             {FOOTER_CONTENT.madeWith}
           </p>
         </div>

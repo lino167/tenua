@@ -26,7 +26,7 @@ const Hero = () => {
           className="w-full h-full object-cover will-change-transform animate-kenburns"
           ref={imgRef}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/96 to-background/30 md:from-background md:via-background/92 md:to-background/20 backdrop-blur-[3px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/97 to-background/40 md:from-background md:via-background/94 md:to-background/25 backdrop-blur-[3px]" />
       </div>
 
       {/* Conteúdo centralizado à esquerda */}
@@ -34,7 +34,7 @@ const Hero = () => {
         <div className="container-wide mx-auto px-6 md:px-12 lg:px-20">
           <div className="max-w-2xl">
             <p
-              className="text-small text-foreground/70 tracking-widest mb-6 animate-fade-in-up opacity-0"
+              className="text-small text-foreground/80 tracking-widest mb-6 animate-fade-in-up opacity-0"
               style={{ animationDelay: '100ms' }}
             >
               {HERO_CONTENT.subtitle}
@@ -60,7 +60,7 @@ const Hero = () => {
             />
 
             <p
-              className="text-lead text-foreground/80 max-w-xl mb-10 animate-fade-in-up opacity-0"
+              className="text-lead text-foreground/90 max-w-xl mb-10 animate-fade-in-up opacity-0"
               style={{ animationDelay: '500ms' }}
             >
               {HERO_CONTENT.description}
