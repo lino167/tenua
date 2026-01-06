@@ -32,7 +32,7 @@
 
     /* Muted - Sage */
     --muted: 30 6% 62%; /* #A69E96 */
-    --muted-foreground: 28 10% 35%;
+    --muted-foreground: 28 10% 30%; /* Increased contrast for WCAG AAA (4.5:1+) */
 
     /* Accent - Terracota Light */
     --accent: 30 15% 78%;
@@ -84,7 +84,7 @@
     --secondary-foreground: 40 33% 97%;
 
     --muted: 28 10% 25%;
-    --muted-foreground: 30 15% 78%;
+    --muted-foreground: 30 15% 75%; /* Increased contrast for WCAG AAA */
 
     --accent: 28 10% 20%;
     --accent-foreground: 40 33% 97%;
