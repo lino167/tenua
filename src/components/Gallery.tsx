@@ -5,6 +5,7 @@ import gallery1 from '@/assets/gallery-1.jpg'
 import gallery2 from '@/assets/gallery-2.jpg'
 import gallery3 from '@/assets/gallery-3.jpg'
 import gallery4 from '@/assets/gallery-4.jpg'
+import gallery9 from '@/assets/gallery-9.png'
 import productBag from '@/assets/product-bag.jpg'
 import productCushion from '@/assets/product-cushion.jpg'
 import productRug from '@/assets/product-rug.jpg'
@@ -19,12 +20,12 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
   { src: gallery1, alt: 'Coleção de peças de crochê', category: 'Lifestyle' },
   { src: productBag, alt: 'Bolsa artesanal', category: 'Acessórios' },
-  { src: gallery2, alt: 'Caminho de mesa em crochê', category: 'Decoração' },
   { src: productCushion, alt: 'Almofada mandala', category: 'Decoração' },
   { src: gallery3, alt: 'Detalhe de textura', category: 'Lifestyle' },
   { src: productRug, alt: 'Tapete decorativo', category: 'Decoração' },
   { src: gallery4, alt: 'Porta-copos artesanais', category: 'Decoração' },
   { src: productGift, alt: 'Kit presente', category: 'Presentes' },
+  { src: gallery9, alt: 'Caminho de mesa', category: 'Decoração' },
 ]
 
 const Gallery = () => {
@@ -74,7 +75,10 @@ const Gallery = () => {
         </div>
 
         {/* Filters */}
-        <nav aria-label="Filtrar galeria por categoria" className="flex flex-wrap justify-center gap-2 mb-12">
+        <nav
+          aria-label="Filtrar galeria por categoria"
+          className="flex flex-wrap justify-center gap-2 mb-12"
+        >
           {GALLERY_CONTENT.categories.map((category) => (
             <button
               key={category}
