@@ -3,7 +3,7 @@
 > **⚠️ DOCUMENTO DE USO ESTRITAMENTE INTERNO**
 > Este repositório contém o código-fonte proprietário da vitrine digital da Tenua. A distribuição não autorizada é proibida.
 
-<img src="src/assets/tenua-logo-principal.png" width="150" alt="Tenua Logo">
+<img src="src/assets/tenua-logo-principal.png" width="30" alt="Tenua Logo">
 
 ---
 
@@ -38,16 +38,6 @@ A stack foi escolhida priorizando **estabilidade, performance e manutenibilidade
 
 ---
 
-## 📚 Documentação Auxiliar
-
-| Recurso | Descrição | Link |
-| :--- | :--- | :--- |
-| 🎨 **Design System** | Protótipos de Alta Fidelidade & Tokens | [Acessar Figma](#) |
-| 📋 **Backlog** | Gestão de Tarefas e Sprints | [Acessar Jira/Board](#) |
-| 🔌 **API (Ext)** | Integrações (WhatsApp/CRM) | [Swagger Hub](#) |
-| 📄 **Brand Book** | Guias de Tom de Voz e Marca | [Drive/Notion](#) |
-
----
 
 ## ⚙️ Ambiente de Desenvolvimento (Onboarding)
 
