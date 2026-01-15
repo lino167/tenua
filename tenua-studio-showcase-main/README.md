@@ -1,81 +1,155 @@
-# Tenua — Studio Showcase
+# Tenua Studio Showcase (Internal)
 
-Site vitrine da marca Tenua, construído com React, Vite, TypeScript e Tailwind CSS (componentes acessíveis via shadcn/ui/Radix UI). Projeto estático, pronto para deploy em host de arquivos.
+> **⚠️ DOCUMENTO DE USO ESTRITAMENTE INTERNO**
+> Este repositório contém o código-fonte proprietário da vitrine digital da Tenua. A distribuição não autorizada é proibida.
 
-## Visão Geral
+<img src="src/assets/tenua-logo-principal.png" width="150" alt="Tenua Logo">
 
-- Página única com seções: Hero, Sobre, Essência, Produtos, Galeria, Depoimentos, Cuidados, Processo de Pedido, FAQ e Contato.
-- Botão de WhatsApp integrado para conversão direta.
-- Conteúdo centralizado para fácil manutenção.
+---
 
-## Stack
+## 🏢 Visão Geral do Produto
 
-- React 18, Vite 5 (SWC), TypeScript 5.
-- Tailwind CSS + animações.
-- shadcn/ui + Radix UI, React Router.
-- Suporte: React Hook Form + Zod, Sonner, Embla, Recharts, Lucide, next-themes.
+O **Tenua Studio Showcase** é o principal ponto de contato digital entre o Ateliê Tenua e seus clientes de alto valor.
 
-## Requisitos
+**Problema de Negócio:** Anteriormente, o processo de vendas dependia exclusivamente do atendimento via WhatsApp/Instagram, sem um catálogo consolidado ou presença de marca que refletisse o posicionamento "premium/artesanal" da empresa.
 
-- Node.js 18+.
-- Use npm ou Bun (mantenha o mesmo gestor de pacotes).
+**Solução:** Uma aplicação web de alta performance que serve como:
+1.  **Catálogo Vivo:** Apresentação dinâmica de produtos (Bolsas, Mantas, Tapetes).
+2.  **Brand Experience:** Transmissão dos valors da marca (Feito à mão, Tempo, Dedicação).
+3.  **Funnel de Conversão:** Direcionamento qualificado para o WhatsApp Comercial.
 
-## Instalação
+**Público Alvo:** Clientes finais (B2C) em busca de decoração de luxo e peças exclusivas.
 
+---
+
+## 🏗️ Arquitetura e Decisões Técnicas
+
+A stack foi escolhida priorizando **estabilidade, performance e manutenibilidade** a longo prazo.
+
+### Frontend (SPA)
+*   **React 18 + TypeScript:** Tipagem estrita é obrigatória para reduzir bugs em runtime e facilitar o onboarding de novos devs.
+*   **Vite:** Build tool escolhida pela velocidade de HMR (Hot Module Replacement) e otimização de bundle.
+*   **Tailwind CSS + Shadcn/UI:** Padronização visual sem "reinventar a roda". O Design System segue tokens estritos (cores, espaçamentos) definidos no Figma.
+*   **TanStack Query:** Gerenciamento de estado de servidor (assíncrono) para separar a camada de dados da UI.
+
+### Infraestrutura & CI/CD
+*   **Hospedagem:** Vercel (Frontend Cloud) para edge caching global.
+*   **Pipeline:** CI via GitHub Actions (validação de Lint/Typescript) e CD automático na branch `main`.
+
+---
+
+## 📚 Documentação Auxiliar
+
+| Recurso | Descrição | Link |
+| :--- | :--- | :--- |
+| 🎨 **Design System** | Protótipos de Alta Fidelidade & Tokens | [Acessar Figma](#) |
+| 📋 **Backlog** | Gestão de Tarefas e Sprints | [Acessar Jira/Board](#) |
+| 🔌 **API (Ext)** | Integrações (WhatsApp/CRM) | [Swagger Hub](#) |
+| 📄 **Brand Book** | Guias de Tom de Voz e Marca | [Drive/Notion](#) |
+
+---
+
+## ⚙️ Ambiente de Desenvolvimento (Onboarding)
+
+Siga este guia estrito para configurar seu ambiente.
+
+### 1. Pré-requisitos
+*   **Node.js**: `v18.17.0` ou superior (Sugerimos usar `nvm` ou `volta`).
+*   **Package Manager**: `npm` (padrão do projeto) ou `bun` (aprovado para CI local).
+*   **Editor**: VS Code com extensões: *ESLint, Prettier, Tailwind CSS IntelliSense*.
+
+### 2. Configuração de Variáveis
+⚠️ **NUNCA comite chaves de API ou segredos no repositório.**
+
+Copie o exemplo para criar seu arquivo local:
 ```bash
-npm install
-# ou
-bun install
+cp .env.example .env
 ```
 
-## Uso
+Edite o `.env` com as chaves de desenvolvimento (solicite ao Tech Lead se necessário):
+```env
+VITE_API_URL=http://localhost:3000
+VITE_WHATSAPP_NUMBER=5589999812679
+```
 
+### 3. Instalação e Execução
 ```bash
+# Instalar dependências (clean install recomendado)
+npm ci
+
+# Rodar servidor local
 npm run dev
-# abre em http://localhost:8080
 ```
 
-## Build e Preview
+O sistema estará disponível em: `http://localhost:8080`
 
-```bash
-npm run build
-npm run preview
-```
+---
 
-## Scripts
+## 🤖 Scripts e Automação
 
-- dev: servidor de desenvolvimento (Vite).
-- build: build de produção.
-- build:dev: build em modo desenvolvimento.
-- preview: serve a build localmente.
-- lint: verifica qualidade do código.
+Utilize os scripts padronizados no `package.json` para manter a qualidade do código.
 
-## Estrutura
+| Comando | Função | Quando usar |
+| :--- | :--- | :--- |
+| `npm run dev` | Inicia servidor de desenvolvimento | Durante a codificação diária |
+| `npm run build` | Gera build de produção (`/dist`) | Antes de abrir Pull Request |
+| `npm run preview` | Testa o build de produção localmente | Para verificar assets/caminhos pós-build |
+| `npm run lint` | Roda ESLint + verificação de tipos | **Obrigatório** antes de commitar |
 
-- tenua-studio-showcase-main/
-  - public/ (favicon, og-image, robots.txt)
-  - src/
-    - assets/ (imagens e logos)
-    - components/ (seções e UI/shadcn)
-    - pages/ (Index, NotFound)
-    - data/ (siteContent.ts)
-    - hooks/, lib/
+---
 
-## Conteúdo
+## 📸 Galeria da Aplicação
 
-- Editar `src/data/siteContent.ts` para textos, listas e configurações.
-- Número do WhatsApp em `whatsapp` (formato com código do país, sem espaços/símbolos).
-- Imagens em `src/assets`.
+### 🏠 Home & Hero
+![Hero](public/docs/screenshots/01-Hero.png)
 
-## Estilos
+### 🧶 História & Essência
+| História | Essência |
+| :---: | :---: |
+| ![História](public/docs/screenshots/02-Historia.png) | ![Essência](public/docs/screenshots/03-Essencia.png) |
 
-- Tailwind configurado com paleta da marca, animações e tipografia (Playfair Display e Montserrat).
-- Estilos globais em `index.css` e `src/App.css`.
+### 👜 Coleções
+![Produtos](public/docs/screenshots/04-Colecoes.png)
 
-## Deploy
+### 🖼️ Portfólio
+![Galeria](public/docs/screenshots/05-Portfolio.png)
 
-- Publicar a pasta `tenua-studio-showcase-main/dist/` em host estático (Vercel, Netlify, GitHub Pages, Cloudflare Pages ou servidor web).
+### 📦 Encomendas
+![Encomendar](public/docs/screenshots/06-Encomendar.png)
 
-## Qualidade
+### ℹ️ Suporte
+| Cuidados | FAQ |
+| :---: | :---: |
+| ![Cuidados](public/docs/screenshots/07-Cuidados.png) | ![FAQ](public/docs/screenshots/08-FAQ.png) |
 
-- ESLint e TypeScript configurados.
+### 📞 Contato
+![Contato](public/docs/screenshots/09-Contato.png)
+
+---
+
+## 🚀 Fluxo de Deploy
+
+O deploy é automatizado via integração Vercel <-> GitHub.
+1.  **Feature Branches**: Deploies de preview gerados automaticamente a cada PR.
+2.  **Main Branch**: Deploy de produção imediato após merge aprovado.
+
+**Regra de Ouro:** A branch `main` deve estar sempre "deployable". Bloqueio de merge se o `npm run build` falhar.
+
+---
+
+## 👨‍💻 Autoria e Manutenção
+
+**Tenua Engineering Team**
+
+*   **Tech Lead:** Zacarias Ramos
+*   **Frontend Eng:** Zacarias Ramos
+*   **Design:** Zacarias Ramos
+
+Para suporte interno, utilize o canal `#dev-tenua` no Slack/Teams.
+
+---
+
+<div align="center">
+  <p>© 2026 Tenua. Todos os direitos reservados.</p>
+  <p><i>Uso estritamente interno e proprietário. Não divulgar.</i></p>
+</div>
