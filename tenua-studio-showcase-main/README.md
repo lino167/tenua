@@ -1,4 +1,4 @@
-# <img src="src/assets/tenua-simbolo.png" height="30" width="30" align="center" alt="Tenua Symbol" style="vertical-align: middle; margin-right: 10px;"> Tenua Studio Showcase
+# <img src="src/assets/tenua-simbolo.png" height="30" width="30" align="center" alt="Tenua Symbol" style="vertical-align: middle; margin-right: 16px;"> Tenua Studio Showcase
 
 > **⚠️ DOCUMENTO DE USO ESTRITAMENTE INTERNO**
 > Este repositório contém o código-fonte proprietário da vitrine digital da Tenua. A distribuição não autorizada é proibida.
@@ -132,8 +132,6 @@ O deploy é automatizado via integração Vercel <-> GitHub.
 *   **Tech Lead:** Zacarias Ramos
 *   **Frontend Eng:** Zacarias Ramos
 *   **Design:** Zacarias Ramos
-
-Para suporte interno, utilize o canal `#dev-tenua` no Slack/Teams.
 
 ---
 
