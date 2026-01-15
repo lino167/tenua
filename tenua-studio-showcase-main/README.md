@@ -57,7 +57,7 @@ cp .env.example .env
 Edite o `.env` com as chaves de desenvolvimento (solicite ao Tech Lead se necessário):
 ```env
 VITE_API_URL=http://localhost:3000
-VITE_WHATSAPP_NUMBER=5589999812679
+VITE_WHATSAPP_NUMBER=55 99 9999-9999
 ```
 
 ### 3. Instalação e Execução
