@@ -1,9 +1,7 @@
-# Tenua Studio Showcase (Internal)
+# <img src="src/assets/tenua-simbolo.png" height="30" width="30" align="center" alt="Tenua Symbol" style="vertical-align: middle; margin-right: 10px;"> Tenua Studio Showcase
 
 > **⚠️ DOCUMENTO DE USO ESTRITAMENTE INTERNO**
 > Este repositório contém o código-fonte proprietário da vitrine digital da Tenua. A distribuição não autorizada é proibida.
-
-<img src="src/assets/tenua-logo-principal.png" width="30" alt="Tenua Logo">
 
 ---
 
