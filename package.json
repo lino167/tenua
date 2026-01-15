@@ -1,0 +1,12 @@
+{
+  "name": "websitetenua-root",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Root package to forward commands to the nested Vite app",
+  "scripts": {
+    "dev": "npm run dev --prefix tenua-studio-showcase-main/tenua-studio-showcase-main",
+    "build": "npm run build --prefix tenua-studio-showcase-main/tenua-studio-showcase-main",
+    "preview": "npm run preview --prefix tenua-studio-showcase-main/tenua-studio-showcase-main",
+    "lint": "npm run lint --prefix tenua-studio-showcase-main/tenua-studio-showcase-main"
+  }
+}
