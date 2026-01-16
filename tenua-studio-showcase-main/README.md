@@ -32,7 +32,7 @@ A stack foi escolhida priorizando **estabilidade, performance e manutenibilidade
 
 ### Infraestrutura & CI/CD
 *   **Hospedagem:** Vercel (Frontend Cloud) para edge caching global.
-*   **Pipeline:** CI via GitHub Actions (validação de Lint/Typescript) e CD automático na branch `main`.
+*   **Pipeline:** CI via GitHub Actions (lint e build) e CD automático na branch `main`.
 
 ---
 
@@ -122,6 +122,28 @@ O deploy é automatizado via integração Vercel <-> GitHub.
 2.  **Main Branch**: Deploy de produção imediato após merge aprovado.
 
 **Regra de Ouro:** A branch `main` deve estar sempre "deployable". Bloqueio de merge se o `npm run build` falhar.
+
+---
+
+## 🛡️ Backups e Alertas
+
+### Backups
+*   Snapshot local: `npm run backup` cria cópia de `src/`, `public/` e configs em `backups/<timestamp>/`.
+*   Manifesto: cada snapshot possui `manifest.json` com itens incluídos e data/hora.
+*   Recomendações: configurar backup externo (S3/Bucket) com retenção; subir via CI com credenciais em `Secrets`.
+
+### Healthcheck
+*   Endpoint estático: `public/healthcheck.json` acessível em `/healthcheck.json` com status básico.
+*   Use este endpoint em monitores externos (Ping/HTTP).
+
+### Monitoramento de Uptime (GitHub Actions)
+*   Workflow: `.github/workflows/uptime-monitor.yml` verifica disponibilidade a cada 15 minutos.
+*   Variável necessária: defina `SITE_URL` em **Repository Variables** para o domínio de produção.
+*   Incidentes: em falha, abre uma Issue com detalhes do status HTTP e timestamp.
+
+### CI de Qualidade
+*   Workflow: `.github/workflows/ci.yml` roda `npm ci`, `npm run lint` e `npm run build` em push/PR para `main`.
+*   Node: versão 18 conforme pré-requisito.
 
 ---
 

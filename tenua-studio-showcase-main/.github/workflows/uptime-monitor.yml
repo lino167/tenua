@@ -1,0 +1,43 @@
+name: uptime-monitor
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+env:
+  SITE_URL: ${{ vars.SITE_URL }}
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check site status
+        id: ping
+        run: |
+          if [ -z "${SITE_URL}" ]; then
+            echo "SITE_URL not set"; exit 2
+          fi
+          code=$(curl -s -o /dev/null -w "%{http_code}" "${SITE_URL}")
+          echo "status=${code}" >> $GITHUB_OUTPUT
+          test "${code}" = "200"
+      - name: Open incident issue
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const status = core.getInput('status', { required: false }) || '${{ steps.ping.outputs.status }}';
+            const title = `Uptime monitor: ${process.env.SITE_URL} retorno ${status}`;
+            const body = [
+              `URL: ${process.env.SITE_URL}`,
+              `HTTP status: ${status}`,
+              `Timestamp: ${new Date().toISOString()}`,
+              `Workflow: ${context.workflow}`,
+              `Run: ${context.runId}`
+            ].join('\n');
+            const { data } = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+              labels: ['incident', 'uptime']
+            });
+            core.info(`Issue opened: #${data.number}`);
+
