@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 function rmDir(p) {
   if (fs.existsSync(p)) fs.rmSync(p, { recursive: true, force: true });
@@ -21,10 +22,12 @@ function copyDir(src, dest) {
   }
 }
 
-const rootDist = path.join('..', '..', 'dist');
-const appDist = path.join('..', 'dist');
+const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+const appDir = path.dirname(scriptDir);
+const rootDir = path.dirname(appDir);
+const rootDist = path.join(rootDir, 'dist');
+const appDist = path.join(appDir, 'dist');
 
 rmDir(rootDist);
 copyDir(appDist, rootDist);
 console.log(`Copied build output from ${appDist} to ${rootDist}`);
-
