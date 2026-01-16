@@ -1,0 +1,1 @@
+{"name":"tenua-studio-forwarder","private":true,"version":"0.0.0","description":"Forward build/dev/preview/lint to parent app and copy dist to repo root","scripts":{"dev":"npm run dev --prefix ..","build":"npm run build --prefix .. && node ../scripts/copy-dist-to-root.mjs","preview":"npm run preview --prefix ..","lint":"npm run lint --prefix .."}}
